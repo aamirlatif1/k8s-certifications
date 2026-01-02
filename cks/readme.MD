@@ -1,4 +1,4 @@
-# <center> CKS </center>
+#  CKS 
 ## Cluster Setup 15%
 - Use Network security policies to restrict cluster level access
 - Use CIS benchmark to review the security configuration of Kubernetes components (etcd, kubelet, kubedns, kubeapi)
@@ -18,19 +18,19 @@
 - Minimize external access to the network
 - Appropriately use kernel hardening tools such as AppArmor, seccomp
 
-## Minimize Microservice Vulnerabilities20%
+## Minimize Microservice Vulnerabilities 20%
 - Use appropriate pod security standards
 - Manage Kubernetes secrets
 - Understand and implement isolation techniques (multi-tenancy, sandboxed containers, etc.)
 - Implement Pod-to-Pod encryption (Cilium, Istio)
 
-## Supply Chain Security20%
+## Supply Chain Security 20%
 - Minimize base image footprint
 - Understand your supply chain (e.g. SBOM, CI/CD, artifact repositories)
 - Secure your supply chain (permitted registries, sign and validate artifacts, etc.)
 - Perform static analysis of user workloads and container images (e.g. Kubesec, KubeLinter)
 
-## Monitoring, Logging and Runtime Security20%
+## Monitoring, Logging and Runtime Security 20%
 - Perform behavioral analytics to detect malicious activities
 - Detect threats within physical infrastructure, apps, networks, data, users and workloads
 - Investigate and identify phases of attack and bad actors within the environment

@@ -1,4 +1,4 @@
-# <center> CKA </center>
+# CKA
 ## Storage 10%
 - Implement storage classes and dynamic volume provisioning
 - Configure volume types, access modes and reclaim policies

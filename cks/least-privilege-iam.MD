@@ -51,3 +51,42 @@ sudo visudo -f /etc/sudoers.d/k8s-operators
 
 su k8s-operator 
 ```
+
+Set following provilleges
+
+```bash
+sudo chmod 600 /etc/kubernetes/admin.conf
+sudo chown root:root /etc/kubernetes/admin.conf
+sudo chmod -R 600 /etc/kubernetes/pki
+sudo chown -R root:root /etc/kubernetes/pki
+```
+
+for more fine grain control use `acl` lib
+```bash
+sudo apt-get install acl
+sudo setfacl -R -m g:k8s-ops:rx /etc/kubernetes
+sudo setfacl -R -m g:k8s-ops:rx /var/lib/kubelet
+```
+
+Audit logs
+
+```bash
+sudo apt-get install auditd
+# update audit/rules.d/kubernetes.rules
+-w /etc/kubernetes -p wa -k kubernetes_config 
+-w /var/lib/kubelet -p wa -k kubelet_data
+```
+Now let's create and delet files
+```bash
+sudo touch /etc/kubernetes/testfile
+sudo rm /etc/kubernetes/testfile 
+
+sudo rm /var/lib/kubelet/testfile 
+sudo ausearch -k kubernetes_config
+```
+
+Then you can view logs by following commands
+```bash
+sudo ausearch -k kubernetes_config
+sudo ausearch -k kubelet_data
+```
